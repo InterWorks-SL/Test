@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "06aa9420-2651-4f40-ba45-b2a0c22917b9",
+		"name": "SIG-SMART",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SMARTtoBabbage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "h",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\"?>\r\n<invoices>\r\n\t<invoice itemreference=\"INV004353492\">\r\n\t\t<cis>true</cis>\r\n\t\t<ordernumber>12345656</ordernumber>\r\n\t\t<type>I</type>\r\n\t\t<linecount>1</linecount>\r\n\t\t<jnlsourcebranch>1</jnlsourcebranch>\r\n\t\t<tradaccount>010001</tradaccount>\r\n\t\t<docdate>27/12/2019</docdate>\r\n\t\t<totalnetval>5500</totalnetval>\r\n\t\t<totalval>6100</totalval>\r\n\t\t<totalvat>600</totalvat>\t\t\r\n\t\t<currency>GBP</currency>\r\n\t\t<miscref>20192701002000001</miscref>\r\n\t\t<enteredby>TestUser</enteredby>\r\n\t\t<lines>\r\n\t\t\t<line>\r\n\t\t\t\t<branch>1</branch>\r\n\t\t\t\t<department>Default Value Share by Tony</department>\r\n\t\t\t\t<glcode>Default Value Share by Tony</glcode>\r\n\t\t\t\t<netval>5500</netval>\r\n\t\t\t\t<vat>600</vat>\r\n\t\t\t\t<taxcode>S</taxcode>\r\n\t\t\t\t<narrative></narrative>\r\n\t\t\t</line>\r\n\t\t</lines>\r\n\t</invoice>\r\n</invoices>\r\n\t",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://elastic.snaplogic.com:443/api/1/rest/slsched/feed/SIVENIN-D/SMARTTools/Green/ReceiveXMLTask?fileName=PlaceStockCISInvoices_20201601003",
+					"protocol": "https",
+					"host": [
+						"elastic",
+						"snaplogic",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"1",
+						"rest",
+						"slsched",
+						"feed",
+						"SIVENIN-D",
+						"SMARTTools",
+						"Green",
+						"ReceiveXMLTask"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "PlaceStockCISInvoices_20201601003"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BabbageToSGS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "aw1T8yHVxbNA1LAWxdlMyyZBTM4qicQq",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://elastic.snaplogic.com:443/api/1/rest/slsched/feed/SIVENIN-T/SMARTTools/Green/BabbageToSGS?fileName=UKAP_",
+					"protocol": "https",
+					"host": [
+						"elastic",
+						"snaplogic",
+						"com"
+					],
+					"port": "443",
+					"path": [
+						"api",
+						"1",
+						"rest",
+						"slsched",
+						"feed",
+						"SIVENIN-T",
+						"SMARTTools",
+						"Green",
+						"BabbageToSGS"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "UKAP_"
+						}
+					]
+				},
+				"description": "fileName parameter should contain only the fixed part of the name. Do not enter timestamp. \n\nExample: \n->Real file that will be transferred is named:  UKAP_GetSupplierMaster_20200320102500.csv\n\n-> In the fileName parameter you should enter: \nUKAP_GetSupplierMaster_\n\nIf there is more than one file starting with this name, all of them will be transfered to SGS."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
