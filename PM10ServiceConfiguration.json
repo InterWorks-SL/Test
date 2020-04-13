@@ -1,0 +1,28 @@
+{
+	"AirPollution_DEV": {
+		"Tasks": {
+			"PM10Processor_ServiceTask": {
+				"pipeline_parameters": {
+					"account": "AzureDBPMService_DEV",
+					"stations": "Karpos"					
+				}
+			}
+		}
+	},
+	"AirPollution_PROD": {
+		"Tasks": {
+			"PM10Processor_ServiceTask": {
+				"pipeline_parameters": {
+					"account": "AzureDBPMService",				
+					"stations": "Karpos,Lisice,Bitola1"
+				}
+			}
+		},
+		"Accounts": {
+			"AzureDBPMService": {
+				"targetLocation":"/Interworks-Partner/AirPollution_PROD/PM10Service/AzureDBPMService",
+				"sourceLocation":"/Interworks-Partner/CicdConfig/prod/AzureDBPMService"
+			}
+		}
+	}
+}
